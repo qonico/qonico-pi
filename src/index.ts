@@ -143,7 +143,7 @@ setInterval(async () => {
 
     // Generate random signal per channel
     const records = config.channels.map((channel, i) => {
-      last[i] = (last[i] || 0) | Math.round(Math.random()*3*1000);
+      last[i] = (last[i] || 0) + Math.round(Math.random()*2*1000);
       return {
         channel: channel.id,
         timestamp: Math.round(Date.now()/1000),
@@ -175,6 +175,7 @@ setInterval(async () => {
     };
 
     const stdTx = signTx(tx, meta, config.wallet);
+    console.log(stdTx);
     const result = await broadcast(restServer, stdTx);
     console.log(result);
   }

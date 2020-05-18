@@ -28,3 +28,8 @@ npm run docker:logs
 npm run docker:stop:all
 npm run docker:rm:all
 ```
+
+## Related Projects
+https://github.com/qonico/qonico-client
+https://github.com/qonico/cosmos-iot
+https://github.com/qonico/cosmos-client
