@@ -15,7 +15,8 @@ docker run -p ${PORT}:3001/tcp -d qonico-pi
 
 ## Get all container urls to use on the client
 ```
-npm run docker:urls
+npm run docker:urls:mac
+npm run docker:urls:linux
 ```
 
 ## listen to log output from all running containers

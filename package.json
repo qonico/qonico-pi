@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node dist/index.js",
     "docker:build": "docker build -t qonico-pi .",
-    "docker:run": "docker run -d qonico-pi",
-    "docker:urls": "docker inspect --format 'http://{{ .NetworkSettings.IPAddress }}:{{(index (index .NetworkSettings.Ports \"3001/tcp\") 0).HostPort}}' $(docker ps -a -q)",
+    "docker:run": "docker run -d -p 3001/tcp qonico-pi",
+    "docker:urls:mac": "docker inspect --format 'http://localhost:{{(index (index .NetworkSettings.Ports \"3001/tcp\") 0).HostPort}}' $(docker ps -a -q)",
+    "docker:urls:linux": "docker inspect --format 'http://{{ .NetworkSettings.IPAddress }}:{{(index (index .NetworkSettings.Ports \"3001/tcp\") 0).HostPort}}' $(docker ps -a -q)",
     "docker:stop:all": "docker stop $(docker ps -a -q)",
     "docker:rm:all": "docker rm $(docker ps -a -q)",
     "docker:logs": "docker logs -f $(docker ps -a -q)",
