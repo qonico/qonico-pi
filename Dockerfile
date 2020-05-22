@@ -1,7 +1,8 @@
 FROM node:12
 
 WORKDIR /usr/src/app
-ENV REST_SERVER host.docker.internal
+ENV REST_SERVER http://host.docker.internal:1317
+ENV USE_RANDOM 1
 
 COPY package*.json ./
 RUN npm install

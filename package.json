@@ -11,7 +11,7 @@
     "docker:urls:linux": "docker inspect --format 'http://{{ .NetworkSettings.IPAddress }}:{{(index (index .NetworkSettings.Ports \"3001/tcp\") 0).HostPort}}' $(docker ps -a -q)",
     "docker:stop:all": "docker stop $(docker ps -a -q)",
     "docker:rm:all": "docker rm $(docker ps -a -q)",
-    "docker:logs": "docker logs -f $(docker ps -a -q)",
+    "docker:logs": "docker ps -q | xargs -L 1 docker logs -f",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
